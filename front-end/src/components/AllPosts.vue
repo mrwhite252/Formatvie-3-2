@@ -1,11 +1,18 @@
   <!-- This is all the posts/images -->
 <template>
-<div class="all-posts">
-    <div v-for="image in images" :key="image.id">
-    <img v-bind:src="'https://picsum.photos/id/' +image.id + '/200/300'" @click="getId(image.id)">
+  <h2 class="text-xl font-bold">Posts:</h2>
+<div class="all-posts flex flex-wrap mx-1 my-1 justify-center" v-if="images.length >= 1">
+    <div v-for="image in images" :key="image.imageUrl" class=" mx-2 my-2 w-64 h-100">
+      <div class="overflow-hidden  h-full">
+      <img class="min-w-full h-full" v-bind:src="image.imageUrl" @click="getId(image._id)">
+      </div>
   </div>
-  <p>Selected Id: {{selectedId}}</p>
 </div>
+      <div v-else>
+        <h3 class="text-xl p-20">Hmm... There’s nothing here.
+          <br>
+          Try creating a post!</h3>
+      </div>
 
 </template>
 
@@ -22,7 +29,7 @@ export default {
     // getImages gets images from piscum - Placeholder for now, until we have our database set up
 
     async getImages(){
-    const response = await fetch(`https://picsum.photos/v2/list?page=2&limit=10`) //get 10 random images
+    const response = await fetch(`http://localhost:3000/posts`) //get 10 random images
     const data = await response.json();
     this.images = data; // add to Image Array
     },
@@ -39,13 +46,5 @@ export default {
 </script>
 
 <style scoped>
-/*  Temporary Styling */
-.all-posts{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1em 10em;
-}
-img{
-    width: 10em;
-}
+  @import url("https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css");
 </style>
