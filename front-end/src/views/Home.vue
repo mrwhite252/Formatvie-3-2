@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <AllPosts/>
+    <CreatePost />
+    <AllPosts />
   </div>
 </template>
 
 <script>
-//For testing/display purposes the component containing all posts is imported here - 
-import AllPosts from '../components/AllPosts.vue'
+//For testing/display purposes the component containing all posts is imported here -
+import AllPosts from "../components/AllPosts.vue";
+import CreatePost from "../components/CreatePost.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    AllPosts
-  }
-}
+    AllPosts,
+    CreatePost,
+  },
+};
 </script>
+
+<style>
+.home {
+  display: flex;
+  margin: 0 3rem;
+}
+</style>
