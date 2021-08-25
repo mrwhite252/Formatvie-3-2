@@ -3,40 +3,49 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div class="modal-header">
-            <slot name="header">
-              default header
-            </slot>
-          </div>
-
-          <div class="modal-body">
-            <slot name="body">
-              default body
-            </slot>
-          </div>
-
-          <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')">
-                ok
-              </button>
-            </slot>
+            <img :src="post.imageUrl" alt="">
+          <div class="modal-text">
+            <div class="modal-header">
+                {{post.title}}
+            </div>
+            <div class="modal-body">
+                <p>{{post.author}}</p>
+                <p>{{post.description}}</p>
+            </div>
+            <div class="modal-footer">
+                insert edit and delete buttons here
+                <!-- <button class="modal-default-button" @click="$emit('close')">
+                  ok
+                </button> -->
+            </div>
           </div>
         </div>
       </div>
     </div>
   </transition>
-
-  <!-- <div>
-
-    <img src="https://picsum.photos/id/684/600/400" alt="" />
-
-  </div> -->
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+      post:[]
+    }
+  },
+  props:{
+    postId: String,
+  },
+  mounted(){
+    this.getPost()
+  },
+  methods:{
+    async getPost(){
+      const response = await fetch('http://localhost:3000/posts/' + this.postId)
+      const data = await response.json();
+      this.post = data; 
+    }
+  }
+};
 </script>
 
 <style>
@@ -58,13 +67,17 @@ export default {};
 }
 
 .modal-container {
-  width: 300px;
+  width: 70vw;
+  height: 70vh;
+
   margin: 0px auto;
   padding: 20px 30px;
   background-color: lightblue;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 1s ease;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .modal-header h3 {
@@ -98,5 +111,11 @@ export default {};
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
+}
+.modal-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 23em;
 }
 </style>
