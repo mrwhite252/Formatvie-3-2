@@ -1,4 +1,5 @@
 <template>
+
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
@@ -7,6 +8,7 @@
             <slot name="header">
               default header
             </slot>
+            <BackButton/><DeleteButton/>
           </div>
 
           <div class="modal-body">
@@ -36,7 +38,14 @@
 </template>
 
 <script>
-export default {};
+import BackButton from "./BackButton.vue"
+import DeleteButton from "./DeleteButton.vue"
+export default {
+  components:{
+    BackButton,
+    DeleteButton,
+  }
+};
 </script>
 
 <style>

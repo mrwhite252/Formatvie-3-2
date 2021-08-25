@@ -35,7 +35,7 @@ app.post("/posts", async (req,res, next) =>{
   const post = new Post ({
     title: req.body.title,
     author: req.body.author,
-    imageUrl: req.body.url,
+    imageUrl: req.body.imageUrl,
     description: req.body.description
   });
   console.log(post);

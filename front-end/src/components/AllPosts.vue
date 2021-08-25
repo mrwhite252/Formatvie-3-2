@@ -4,7 +4,7 @@
 
   <div>
     <h2 class="text-xl font-bold">Posts:</h2>
-    <div
+    <div 
       class="all-posts flex flex-wrap mx-1 my-1 justify-center"
       v-if="images.length >= 1"
     >
@@ -33,16 +33,16 @@
 </template>
 
 <script>
-import ViewSinglePost from "./ViewSinglePost.vue";
+
 export default {
   components: {
-    ViewSinglePost,
+    
   },
   data() {
     return {
       images: [],
       selectedId: null, //adds ability to extract image id to acess singular post
-      showModal: false,
+      showModel: false,
     };
   },
   methods: {
