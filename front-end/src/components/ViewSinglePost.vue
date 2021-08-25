@@ -3,31 +3,49 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <img :src="post.imageUrl" alt="" />
-          <div class="modal-text">
-            <!-- <div class="modal-header">
-                {{post.title}}
+            <img :src="post.imageUrl" alt="" />
+            <div class="modal-text">
+          <span>
+              <!-- <div class="modal-header">
+                  {{post.title}}
+              </div>
+              <div class="modal-body">
+                  <p>{{post.author}}</p>
+                  <p>{{post.description}}</p>
+              </div>
+              <div class="modal-footer">
+                  insert edit and delete buttons here
+            </div> -->
+          </span>
+
+          <span>
+            <form @submit.prevent="sendPost">
+              <input type="text" placeholder="Title" v-model="post.title" />
+              <input type="text" placeholder="Author" v-model="post.author" />
+              <select  name="" id="" v-model="post.imageUrl">
+            <option selected hidden value="Select Image"  >Select Image...</option>
+            <option value="https://drive.google.com/uc?export=view&id=1f5LB6f1V_Q45vv8pFXNK7vcBARNv7kCb" >Waterfall</option>
+            <option value="https://drive.google.com/uc?export=view&id=1TRJ7rTeA5DOBkEE0UIVyucS8wEmKiMYR" >Dog</option>
+            <option value="https://drive.google.com/uc?export=view&id=1T8Bmj2uFS-1EuHNRBJn3YnpomlKTUSDA" >Bee</option>
+            <option value="https://drive.google.com/uc?export=view&id=1Fa9S0RbyG222n7c31PTYPcpmCAgfeVyu" >Owl</option>
+            <option value="https://drive.google.com/uc?export=view&id=1jlJWQMzQC7WW9gRscRsUYMEDL2QpLGtV" >Moon</option>
+            <option value="https://drive.google.com/uc?export=view&id=1qjT6occo-Ghrn74yRPBdgGqMVRo_0Ybu" >Car</option>
+            <option value="https://drive.google.com/uc?export=view&id=1N_jFCVgTmWvGUJHsUVWTTQ2qYwzuknsA" >Mountain</option>
+            <option value="https://drive.google.com/uc?export=view&id=1Rhx9zFY0gfhpLyXHa_z9X_Ai6_Y1CoWb" >Lighthouse</option>
+            <option value="https://drive.google.com/uc?export=view&id=1sBho4iEEmXjg2VxP1oVPWmM8rJ8bRlR7" >Lion</option>
+            <option value="https://drive.google.com/uc?export=view&id=18LORjnsmyKmB5951cT8eZcDIo_KX5VcN" >City</option>
+                    </select>
+              <textarea
+                placeholder="Description"
+                row="20"
+                v-model="post.description"
+              />
+              <button type="submit" @click="updatePost">
+                <i class="fab fa-telegram-plane"></i> Confirm
+              </button>
+            </form>
+          </span>
             </div>
-            <div class="modal-body">
-                <p>{{post.author}}</p>
-                <p>{{post.description}}</p>
-            </div>
-            <div class="modal-footer">
-                insert edit and delete buttons here
-          </div> -->
-          </div>
-          <form @submit.prevent="sendPost">
-            <input type="text" placeholder="Title" v-model="post.title" />
-            <input type="text" placeholder="Author" v-model="post.author" />
-            <textarea
-              placeholder="Description"
-              row="20"
-              v-model="post.description"
-            />
-            <button type="submit" @click="updatePost">
-              <i class="fab fa-telegram-plane"></i> Confirm
-            </button>
-          </form>
         </div>
       </div>
     </div>
