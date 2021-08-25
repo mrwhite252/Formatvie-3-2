@@ -24,7 +24,15 @@ app.use(cors());
 
 const Post = require("./models/Post");
 
+//Get all posts
 app.get("/posts", async (req, res) => {
   const posts = await Post.find();
   res.status(200).json(posts);
 });
+
+//Get specific post
+app.get("/posts/:postId", async (req, res) => {
+  const post = await Post.findById(req.params.postId);
+  res.status(200).json(post);
+});
+
