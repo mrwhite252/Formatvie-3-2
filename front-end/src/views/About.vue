@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 
   <div class="about">
     <BackButton/>
@@ -20,3 +21,9 @@ export default {
 <style>
 
 </style>
+=======
+  <div class="about">
+    <h1>This is an about page</h1>
+  </div>
+</template>
+>>>>>>> 351244ac9e4fbf00604561677f084f2c65fb3697

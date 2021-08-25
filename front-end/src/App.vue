@@ -2,9 +2,14 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+<<<<<<< HEAD
     <router-view/>
   </div>
   
+=======
+  </div>
+  <router-view/>
+>>>>>>> 351244ac9e4fbf00604561677f084f2c65fb3697
 </template>
 
 <style lang="scss">
