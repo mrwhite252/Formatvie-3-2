@@ -28,3 +28,32 @@ app.get("/posts", async (req, res) => {
   const posts = await Post.find();
   res.status(200).json(posts);
 });
+
+//create a new item to read POST request body data
+app.post("/posts", async (req,res, next) =>{
+  try{
+  const post = new Post ({
+    title: req.body.title,
+    author: req.body.author,
+    imageUrl: req.body.url,
+    description: req.body.description
+  });
+  console.log(post);
+  const savedPost = await post.save();
+  res.json(savedPost);
+} catch (error) {
+  next (error);
+}
+}); 
+
+//delete one image
+app.delete("/posts/:id", async (request, response) => {
+  try {
+    const post = await Posts.findByIdAndDelete(request.params.id);
+
+    if (!post) response.status(404).send("No item found");
+    response.status(200).send();
+  } catch (error) {
+    response.status(500).send(error);
+  }
+});
