@@ -9,10 +9,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-<<<<<<< HEAD
-    "node": "^16.6.1",
-=======
->>>>>>> 351244ac9e4fbf00604561677f084f2c65fb3697
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"
   },
@@ -27,13 +23,5 @@
     "eslint-plugin-vue": "^7.0.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2"
-<<<<<<< HEAD
-  },
-  "description": "```\r npm install\r ```",
-  "main": ".eslintrc.js",
-  "author": "",
-  "license": "ISC"
-=======
   }
->>>>>>> 351244ac9e4fbf00604561677f084f2c65fb3697
 }
