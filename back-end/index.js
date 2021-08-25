@@ -36,3 +36,21 @@ app.get("/posts/:postId", async (req, res) => {
   res.status(200).json(post);
 });
 
+//Update specific post
+app.patch("/posts/:postId", async (req, res, next) => {
+  try {
+    const postData = {
+      title: req.body.title,
+      author: req.body.author,
+      imageUrl: req.body.imageUrl,
+      description: req.body.description,
+    };
+    const updatedPost = await Post.findByIdAndUpdate(
+      req.params.postId,
+      postData
+    );
+    res.json(updatedPost);
+  } catch (error) {
+    next(error);
+  }
+});

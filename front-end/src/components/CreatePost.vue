@@ -25,7 +25,7 @@
           <option value="https://drive.google.com/uc?export=view&id=18LORjnsmyKmB5951cT8eZcDIo_KX5VcN" >City</option>
         </select>
         <textarea placeholder="Description" row="20" v-model="post.description"/>
-          <button type="submit"><i class="fab fa-telegram-plane"></i>Confirm</button>
+          <button type="submit"><i class="fab fa-telegram-plane"></i> Confirm</button>
       </form>
       </div>
       <p>{{post.title}}</p>

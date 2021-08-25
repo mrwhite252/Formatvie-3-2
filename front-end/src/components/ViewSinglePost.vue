@@ -3,9 +3,9 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-            <img :src="post.imageUrl" alt="">
+          <img :src="post.imageUrl" alt="" />
           <div class="modal-text">
-            <div class="modal-header">
+            <!-- <div class="modal-header">
                 {{post.title}}
             </div>
             <div class="modal-body">
@@ -14,11 +14,20 @@
             </div>
             <div class="modal-footer">
                 insert edit and delete buttons here
-                <!-- <button class="modal-default-button" @click="$emit('close')">
-                  ok
-                </button> -->
-            </div>
+          </div> -->
           </div>
+          <form @submit.prevent="sendPost">
+            <input type="text" placeholder="Title" v-model="post.title" />
+            <input type="text" placeholder="Author" v-model="post.author" />
+            <textarea
+              placeholder="Description"
+              row="20"
+              v-model="post.description"
+            />
+            <button type="submit" @click="updatePost">
+              <i class="fab fa-telegram-plane"></i> Confirm
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -27,24 +36,43 @@
 
 <script>
 export default {
-  data(){
-    return{
-      post:[]
-    }
+  data() {
+    return {
+      post: [],
+    };
   },
-  props:{
+  props: {
     postId: String,
   },
-  mounted(){
-    this.getPost()
+  mounted() {
+    this.getPost();
   },
-  methods:{
-    async getPost(){
-      const response = await fetch('http://localhost:3000/posts/' + this.postId)
+  methods: {
+    async getPost() {
+      const response = await fetch(
+        "http://localhost:3000/posts/" + this.postId
+      );
       const data = await response.json();
-      this.post = data; 
-    }
-  }
+      this.post = data;
+    },
+    async updatePost() {
+      const response = await fetch(
+        "http://localhost:3000/posts/" + this.postId,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            title: this.post.title,
+            author: this.post.author,
+            imageUrl: this.post.imageUrl,
+            description: this.post.description,
+          }),
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+    },
+  },
 };
 </script>
 
@@ -112,7 +140,7 @@ export default {
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
 }
-.modal-text{
+.modal-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
