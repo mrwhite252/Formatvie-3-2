@@ -2,9 +2,9 @@
 <template>
   <!-- all the content within the template should be wrapped up by a div -->
 
-  <div>
+  <div class="all-posts-component">
     <h2 class="text-xl font-bold">Posts:</h2>
-    <div
+    <div 
       class="all-posts flex flex-wrap mx-1 my-1 justify-center"
       v-if="images.length >= 1"
     >
@@ -13,6 +13,8 @@
         :key="image.imageUrl"
         class=" mx-2 my-2 w-64 h-100"
       >
+      <router-link :to="{name:'SinglePost', params:{postId:image._id}}">
+
         <div class="overflow-hidden  h-full">
           <img
             class="min-w-full h-full"
@@ -20,6 +22,7 @@
             @click="getId(image._id)"
           />
         </div>
+      </router-link>
       </div>
     </div>
     <div v-else>
@@ -33,16 +36,12 @@
 </template>
 
 <script>
-import ViewSinglePost from "./ViewSinglePost.vue";
 export default {
-  components: {
-    ViewSinglePost,
-  },
   data() {
     return {
       images: [],
       selectedId: null, //adds ability to extract image id to acess singular post
-      showModal: false,
+      showModel: false,
     };
   },
   methods: {
@@ -67,4 +66,9 @@ export default {
 
 <style scoped>
 @import url("https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css");
+
+.all-posts-component{
+  margin-left: 15em;
+}
+
 </style>
