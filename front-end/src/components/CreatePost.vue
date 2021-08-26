@@ -28,6 +28,10 @@
           <button type="submit"><i class="fab fa-telegram-plane"></i> Confirm</button>
       </form>
       </div>
+      <p>{{post.title}}</p>
+      <p>{{post.author}}</p>
+      <p>{{post.imageUrl}}</p>
+      <p>{{post.description}}</p>
   </div>
 </template>
 
@@ -47,11 +51,11 @@ export default {
   methods: {
     async sendPost() {
       const post = {}; 
-      post.title = this.title;
-      post.imageUrl = this.imageUrl;
-      post.description = this.description;
+      post.title = this.post.title;
+      post.imageUrl = this.post.imageUrl;
+      post.description = this.post.description;
       if (this.author) { 
-        post.author = this.author;
+        post.author = this.post.author;
       }
 
       const response = await fetch("http://localhost:3000/posts", { 

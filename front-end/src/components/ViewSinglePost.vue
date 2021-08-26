@@ -7,7 +7,7 @@
             <BackButton/>
             <img :src="post.imageUrl" alt="" />
             <div class="modal-text">
-          <span  v-if="seen">
+          <span id="post-view">
               <div class="modal-header">
                   {{post.title}}
               </div>
@@ -15,14 +15,14 @@
                   <p>{{post.author}}</p>
                   <p>{{post.description}}</p>
               </div>
-                <button type="submit" @click="seen = !seen">
+                <button @click="editPost">
                 <i class="fas fa-pencil-alt"></i>
                 Edit Post
               </button>
           </span>
 
-          <span v-else>
-            <form @submit.prevent="sendPost">
+          <span id="post-edit">
+            <form @submit.prevent="updatePost">
               <input type="text" placeholder="Title" v-model="post.title" />
               <input type="text" placeholder="Author" v-model="post.author" />
               <select  name="" id="" v-model="post.imageUrl">
@@ -43,7 +43,7 @@
                 row="20"
                 v-model="post.description"
               />
-              <button type="submit" @click="updatePost, seen=!seen">
+              <button type="submit" @click="updatePost(), viewPost()">
                 <i class="fab fa-telegram-plane"></i> Confirm
               </button>
             </form>
@@ -76,6 +76,7 @@ export default {
   },
   mounted() {
     this.getPost();
+    this.viewPost();
   },
   methods: {
     async getPost() {
@@ -101,6 +102,15 @@ export default {
       );
       const data = await response.json();
       console.log(data);
+    },
+    editPost(){
+      document.getElementById("post-view").style.display="none";
+      document.getElementById("post-edit").style.display="inline";
+    },
+    viewPost(){
+      document.getElementById("post-edit").style.display="none";
+      document.getElementById("post-view").style.display="inline";
+
     },
   },
 };
