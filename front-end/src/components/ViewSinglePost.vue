@@ -11,16 +11,16 @@
             <BackButton/><DeleteButton/>
           </div>
 
-          <div class="modal-body">
+          <div class="model-body">
             <slot name="body">
               default body
             </slot>
           </div>
 
-          <div class="modal-footer">
+          <div class="model-footer">
             <slot name="footer">
               default footer
-              <button class="modal-default-button" @click="$emit('close')">
+              <button class="model-default-button" @click="$emit('close')">
                 ok
               </button>
             </slot>
