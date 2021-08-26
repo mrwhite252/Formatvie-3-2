@@ -4,23 +4,24 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-            <img :src="post.imageUrl" alt="" />
             <BackButton/>
+            <img :src="post.imageUrl" alt="" />
             <div class="modal-text">
-          <span>
-              <!-- <div class="modal-header">
+          <span  v-if="seen">
+              <div class="modal-header">
                   {{post.title}}
               </div>
               <div class="modal-body">
                   <p>{{post.author}}</p>
                   <p>{{post.description}}</p>
               </div>
-              <div class="modal-footer">
-                  insert edit and delete buttons here
-            </div> -->
+                <button type="submit" @click="seen = !seen">
+                <i class="fas fa-pencil-alt"></i>
+                Edit Post
+              </button>
           </span>
 
-          <span>
+          <span v-else>
             <form @submit.prevent="sendPost">
               <input type="text" placeholder="Title" v-model="post.title" />
               <input type="text" placeholder="Author" v-model="post.author" />
@@ -42,7 +43,7 @@
                 row="20"
                 v-model="post.description"
               />
-              <button type="submit" @click="updatePost">
+              <button type="submit" @click="updatePost, seen=!seen">
                 <i class="fab fa-telegram-plane"></i> Confirm
               </button>
             </form>
@@ -63,6 +64,7 @@ export default {
   data() {
     return {
       post: [],
+      seen:true,
     };
   },
   components:{
@@ -173,5 +175,8 @@ export default {
   flex-direction: column;
   justify-content: center;
   width: 23em;
+}
+.hidden{
+  display: none;
 }
 </style>
