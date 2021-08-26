@@ -28,10 +28,6 @@
           <button type="submit"><i class="fab fa-telegram-plane"></i> Confirm</button>
       </form>
       </div>
-      <p>{{post.title}}</p>
-      <p>{{post.author}}</p>
-      <p>{{post.imageUrl}}</p>
-      <p>{{post.description}}</p>
   </div>
 </template>
 
