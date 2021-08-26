@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <CreatePost/>
+    <CreatePost />
     <AllPosts />
   </div>
 </template>
