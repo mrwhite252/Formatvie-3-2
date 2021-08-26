@@ -47,6 +47,7 @@ export default {
       const response = await fetch(`http://localhost:3000/posts`); //get posts
       const data = await response.json();
       this.images = data; // add to Image Array
+      console.log("TESTING UPDATING")
     },
 
     getId(id) {
@@ -54,7 +55,7 @@ export default {
       console.log(this.selectedId); //testing purposes
     },
   },
-  mounted() {
+  created() {
     this.getImages();
   },
 };
