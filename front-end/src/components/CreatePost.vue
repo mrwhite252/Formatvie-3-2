@@ -74,7 +74,7 @@ export default {
   align-items: center;
   width: 15rem;
   margin: 0 auto;
-  height: 100vh;
+  height: 50vh;
   background-color: white;
   position: fixed;
 }
