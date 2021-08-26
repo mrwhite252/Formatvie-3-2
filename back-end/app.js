@@ -30,6 +30,12 @@ app.get("/posts", async (req, res) => {
   res.status(200).json(posts);
 });
 
+//Get specific post
+app.get("/posts/:postId", async (req, res) => {
+  const post = await Post.findById(req.params.postId);
+  res.status(200).json(post);
+});
+
 //create a new item to read POST request body data
 app.post("/posts", async (req,res, next) =>{
   try{
@@ -58,11 +64,7 @@ app.delete("/posts/:id", async (request, response) => {
     response.status(500).send(error);
   }
 });
-//Get specific post
-app.get("/posts/:postId", async (req, res) => {
-  const post = await Post.findById(req.params.postId);
-  res.status(200).json(post);
-});
+
 
 //Update specific post
 app.patch("/posts/:postId", async (req, res, next) => {

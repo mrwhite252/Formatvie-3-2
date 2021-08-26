@@ -1,7 +1,5 @@
 <!-- This is all the posts/images -->
 <template>
-  <!-- all the content within the template should be wrapped up by a div -->
-
   <div class="all-posts-component">
     <h2 class="text-xl font-bold">Posts:</h2>
     <div 
@@ -45,10 +43,8 @@ export default {
     };
   },
   methods: {
-    // getImages gets images from piscum - Placeholder for now, until we have our database set up
-
     async getImages() {
-      const response = await fetch(`http://localhost:3000/posts`); //get 10 random images
+      const response = await fetch(`http://localhost:3000/posts`); //get posts
       const data = await response.json();
       this.images = data; // add to Image Array
     },

@@ -4,8 +4,8 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-            <BackButton/>
             <img :src="post.imageUrl" alt="" />
+            <BackButton/>
             <div class="modal-text">
           <span>
               <!-- <div class="modal-header">
@@ -47,7 +47,7 @@
               </button>
             </form>
           </span>
-            <DeleteButton/>
+            <!-- <DeleteButton/> -->
             </div>
         </div>
       </div>
@@ -57,7 +57,7 @@
 
 <script>
 import BackButton from "./BackButton.vue"
-import DeleteButton from "./DeleteButton.vue"
+// import DeleteButton from "./DeleteButton.vue"
 
 export default {
   data() {
@@ -67,7 +67,7 @@ export default {
   },
   components:{
     BackButton,
-    DeleteButton,
+    // DeleteButton,
   },
   props: {
     postId: String,
