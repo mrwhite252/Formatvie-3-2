@@ -74,7 +74,7 @@ export default {
 .create-post-component {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 20rem;
   margin: 0 auto;
@@ -99,7 +99,7 @@ form {
   flex-direction: column;
   justify-content: space-between; 
   height: 40vh;
-  margin-bottom: 20vh;
+  margin-bottom: 10em;
 }
 
 textarea {
@@ -114,8 +114,8 @@ input, select, textarea{
 button{
   border: thin black solid;
   border-radius: 30px;
-  color: white;
   background-color: #3E4352;
+  color: white;
   padding: 1em;
 }
 </style>
