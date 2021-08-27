@@ -5,7 +5,7 @@
 <script>
 export default {
     methods:{
-        async delete(url) {
+        async delete() {
             const response = await fetch ("http://localhost:3000/posts", {
                 method: 'DELETE',
                 headers: {
