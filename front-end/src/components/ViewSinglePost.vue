@@ -24,6 +24,7 @@
           </span>
 
           <span id="post-edit">
+            <h3>Edit Post:</h3>
             <form @submit.prevent="updatePost">
               <input type="text" placeholder="Title" v-model="post.title" />
               <input type="text" placeholder="Author" v-model="post.author" />
@@ -50,7 +51,7 @@
               </button>
             </form>
           </span>
-            <DeleteButton :post="post"/>
+            <DeleteButton class="delete-button" :post="post"/>
             </div>
         </div>
       </div>
@@ -175,10 +176,19 @@ export default {
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
 }
+.modal-text-top{
+  padding-bottom: 10em;
+}
+.delete-button, button{
+  margin-bottom: 1em;
+  width: 10em;
+  padding: 0.5em;
+}
 .modal-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 23em;
 }
 .hidden{
@@ -187,7 +197,18 @@ export default {
 #post-view{
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 70vh;
-  
+}
+#post-edit{
+  margin-top: 5em;
+}
+#post-edit h3{
+margin-bottom: 1em;
+font-weight: bolder;
+}
+form{
+  margin-bottom: 0;
+  width: 10em;
 }
 </style>

@@ -26,9 +26,9 @@ export default {
         width:0.8em;
         color:#3E4352;
         font-size: 2em;
-        position: absolute;
-        top:5em;
-        left:9em;
+        position: relative;
+        /* top:5em; */
+        /* left:5.6em; */
         display: flex;
     }
     i{
