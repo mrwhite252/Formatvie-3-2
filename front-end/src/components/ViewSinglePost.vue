@@ -48,7 +48,7 @@
               </button>
             </form>
           </span>
-            <!-- <DeleteButton/> -->
+            <DeleteButton/>
             </div>
         </div>
       </div>
@@ -58,7 +58,7 @@
 
 <script>
 import BackButton from "./BackButton.vue"
-// import DeleteButton from "./DeleteButton.vue"
+import DeleteButton from "./DeleteButton.vue"
 
 export default {
   data() {
@@ -69,7 +69,7 @@ export default {
   },
   components:{
     BackButton,
-    // DeleteButton,
+    DeleteButton,
   },
   props: {
     postId: String,
@@ -140,7 +140,7 @@ export default {
 
   margin: 0px auto;
   padding: 20px 30px;
-  background-color: lightblue;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 1s ease;
