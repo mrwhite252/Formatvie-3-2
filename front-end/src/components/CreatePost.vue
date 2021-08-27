@@ -4,7 +4,6 @@
   <div class="create-post-component">
     <div class="header">
       <img id="logo" src="../assets/logo-2.png" alt="logo" />
-      <h1>ShutterFly</h1>
     </div>
     <div class="form">
       <h2>Create New Post:</h2>
@@ -61,6 +60,11 @@ export default {
       });
       const data = await response.json(); 
       console.log(data)
+      this.post.title = null
+      this.post.author = null
+      this.post.imageUrl = null
+      this.post.description = null
+      this.$emit('createdPost')
     },
   },
 };
@@ -72,14 +76,21 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 15rem;
+  width: 20rem;
   margin: 0 auto;
-  height: 50vh;
+  height: 100vh;
   background-color: white;
   position: fixed;
+  left: 0;
+  top: 0;
+  box-shadow: 9px -1px 38px -18px rgba(0,0,0,0.75);
+-webkit-box-shadow: 9px -1px 38px -18px rgba(0,0,0,0.75);
+-moz-box-shadow: 9px -1px 38px -18px rgba(0,0,0,0.75);
 }
+
 #logo {
-  width: 8rem;
+  width: 16em;
+  margin-top: 2em;
 }
 
 form {
@@ -88,6 +99,7 @@ form {
   flex-direction: column;
   justify-content: space-between; 
   height: 40vh;
+  margin-bottom: 20vh;
 }
 
 textarea {
@@ -102,6 +114,8 @@ input, select, textarea{
 button{
   border: thin black solid;
   border-radius: 30px;
+  color: white;
+  background-color: #3E4352;
   padding: 1em;
 }
 </style>
