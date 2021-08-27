@@ -64,7 +64,7 @@ export default {
       this.post.author = null
       this.post.imageUrl = null
       this.post.description = null
-      // this.$router.push("http://localhost:8080/")
+      this.$emit('createdPost')
     },
   },
 };
