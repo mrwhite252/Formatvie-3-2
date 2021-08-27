@@ -3,25 +3,21 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header">
-            <slot name="header">
-              default header
-            </slot>
+        <div v-if="post" class="modal-container">
             <BackButton/>
-          </div>
-
-          <div class="model-body">
-            <slot name="body">
-              default body
-            </slot>
-          </div>
-
-          <div class="model-footer">
-            <slot name="footer">
-              default footer
-              <button class="model-default-button" @click="$emit('close')">
-                ok
+            <img :src="post.imageUrl" alt="" />
+            <div class="modal-text">
+          <span id="post-view">
+              <div class="modal-header">
+                  {{post.title}}
+              </div>
+              <div class="modal-body">
+                  <p>{{post.author}}</p>
+                  <p>{{post.description}}</p>
+              </div>
+                <button @click="editPost">
+                <i class="fas fa-pencil-alt"></i>
+                Edit Post
               </button>
           </span>
 
@@ -52,7 +48,7 @@
               </button>
             </form>
           </span>
-            <DeleteButton/>
+            <DeleteButton :post="post"/>
             </div>
         </div>
       </div>
@@ -63,7 +59,6 @@
 <script>
 import BackButton from "./BackButton.vue"
 import DeleteButton from "./DeleteButton.vue"
-
 export default {
   data() {
     return {
@@ -114,7 +109,6 @@ export default {
     viewPost(){
       document.getElementById("post-edit").style.display="none";
       document.getElementById("post-view").style.display="inline";
-
     },
   },
 };
@@ -132,16 +126,13 @@ export default {
   display: table;
   transition: opacity 1s;
 }
-
 .modal-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
-
 .modal-container {
   width: 70vw;
   height: 70vh;
-
   margin: 0px auto;
   padding: 20px 30px;
   background-color: white;
@@ -151,34 +142,27 @@ export default {
   display: flex;
   justify-content: space-evenly;
 }
-
 .modal-header h3 {
   margin-top: 0;
   color: #42b983;
 }
-
 .modal-body {
   margin: 20px 0;
   padding-bottom: 10px;
   border-bottom: 1px solid black;
 }
-
 .modal-footer {
   margin: 20px 0;
 }
-
 .modal-default-button {
   float: right;
 }
-
 .modal-enter {
   opacity: 0;
 }
-
 .modal-leave-active {
   opacity: 0;
 }
-
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.3);

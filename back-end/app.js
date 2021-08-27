@@ -53,7 +53,7 @@ app.post("/posts", async (req,res, next) =>{
 }
 }); 
 
-/// delete article
+/// delete post
 app.delete("/posts/:postId", async (req, res, next) => {
   try {
     const deletedPost = await Post.findByIdAndRemove(

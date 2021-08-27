@@ -1,20 +1,25 @@
 <template>
-    <button @onClick="deletePost" class="delete-button">Delete Post</button>
+    <button @click="deletePost" class="delete-button">Delete Post</button>
 </template>
 
 <script>
 export default {
+
+  props:{
+    post: Object,
+  },
     methods:{
-        async delete() {
-            const response = await fetch ("http://localhost:3000/posts", {
-                method: 'DELETE',
-                headers: {
-                    'Content-type': 'application/json'
-                }
-            });
-            const resData = '"Post Deleted...';
-            return resData;
+        async deletePost() {
+          console.log("ping");
+           const response = await fetch(
+        "http://localhost:3000/posts/" + this.post._id,
+        {
+          method: "DELETE",
         }
+      );
+      const data = await response.json();
+      this.$router.push({ name: "Home" });
+    }
     }
 }
 </script>
