@@ -8,7 +8,7 @@
             <slot name="header">
               default header
             </slot>
-            <BackButton/><DeleteButton/>
+            <BackButton/>
           </div>
 
           <div class="model-body">
