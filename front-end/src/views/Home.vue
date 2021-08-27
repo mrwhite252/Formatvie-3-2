@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <CreatePost />
+    <CreatePost @createdPost="testing"/>
     <AllPosts />
   </div>
 </template>
@@ -17,6 +17,18 @@ export default {
     AllPosts,
     CreatePost,
   },
+  data(){
+    return{
+      testingData: null
+    }
+  },
+  methods:{
+    testing(){
+      console.log("Hello")
+      this.testingData = "NEW HELLO"
+      console.log(this.testingData)
+    },
+  }
 };
 </script>
 
@@ -25,4 +37,5 @@ export default {
   display: flex;
   margin: 0 3rem;
 }
+
 </style>

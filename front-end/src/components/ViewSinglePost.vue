@@ -8,12 +8,14 @@
             <img :src="post.imageUrl" alt="" />
             <div class="modal-text">
           <span id="post-view">
-              <div class="modal-header">
-                  {{post.title}}
-              </div>
-              <div class="modal-body">
-                  <p>{{post.author}}</p>
-                  <p>{{post.description}}</p>
+              <div class="modal-text-top">
+                <div class="modal-header">
+                    <h3>{{post.title}}</h3>
+                </div>
+                <div class="modal-body">
+                    <h5>{{post.author}}</h5>
+                    <p>{{post.description}}</p>
+                </div>
               </div>
                 <button @click="editPost">
                 <i class="fas fa-pencil-alt"></i>
@@ -109,7 +111,7 @@ export default {
     },
     viewPost(){
       document.getElementById("post-edit").style.display="none";
-      document.getElementById("post-view").style.display="inline";
+      document.getElementById("post-view").style.display="flex";
 
     },
   },
@@ -137,26 +139,31 @@ export default {
 .modal-container {
   width: 70vw;
   height: 70vh;
-
   margin: 0px auto;
-  padding: 20px 30px;
-  background-color: lightblue;
+  padding: 20px 10px;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 1s ease;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .modal-header h3 {
   margin-top: 0;
-  color: #42b983;
+  color: #3E4352;
+  font-size: 2em;
+  font-weight: 800;
 }
 
 .modal-body {
   margin: 20px 0;
   padding-bottom: 10px;
   border-bottom: 1px solid black;
+}
+
+.modal-body h5{
+  font-weight:600;
 }
 
 .modal-footer {
@@ -188,5 +195,11 @@ export default {
 }
 .hidden{
   display: none;
+}
+#post-view{
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  
 }
 </style>

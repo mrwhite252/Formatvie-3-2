@@ -42,6 +42,9 @@ export default {
       showModel: false,
     };
   },
+  // props:{
+  //   testingData: String
+  // },
   methods: {
     async getImages() {
       const response = await fetch(`http://localhost:3000/posts`); //get posts
@@ -61,11 +64,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 @import url("https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css");
 
 .all-posts-component{
-  margin-left: 15em;
+  margin-left: 20em;
 }
-
+img{
+  border-radius: 10px;
+}
 </style>
