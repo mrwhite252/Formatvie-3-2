@@ -4,6 +4,7 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
+<<<<<<< HEAD
             <BackButton/>
             <img :src="post.imageUrl" alt="" />
             <div class="modal-text">
@@ -18,6 +19,26 @@
                 <button @click="editPost">
                 <i class="fas fa-pencil-alt"></i>
                 Edit Post
+=======
+          <div class="modal-header">
+            <slot name="header">
+              default header
+            </slot>
+            <BackButton/><DeleteButton/>
+          </div>
+
+          <div class="model-body">
+            <slot name="body">
+              default body
+            </slot>
+          </div>
+
+          <div class="model-footer">
+            <slot name="footer">
+              default footer
+              <button class="model-default-button" @click="$emit('close')">
+                ok
+>>>>>>> 4260043565c63d58a84ccd401cc55edd3320beea
               </button>
           </span>
 
