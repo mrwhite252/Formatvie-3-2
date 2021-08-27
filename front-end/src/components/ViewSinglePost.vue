@@ -3,7 +3,7 @@
   <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
-        <div class="modal-container">
+        <div v-if="post" class="modal-container">
             <BackButton/>
             <img :src="post.imageUrl" alt="" />
             <div class="modal-text">
@@ -50,7 +50,7 @@
               </button>
             </form>
           </span>
-            <!-- <DeleteButton/> -->
+            <DeleteButton :post="post"/>
             </div>
         </div>
       </div>
@@ -60,8 +60,7 @@
 
 <script>
 import BackButton from "./BackButton.vue"
-// import DeleteButton from "./DeleteButton.vue"
-
+import DeleteButton from "./DeleteButton.vue"
 export default {
   data() {
     return {
@@ -71,7 +70,7 @@ export default {
   },
   components:{
     BackButton,
-    // DeleteButton,
+    DeleteButton,
   },
   props: {
     postId: String,
@@ -112,7 +111,6 @@ export default {
     viewPost(){
       document.getElementById("post-edit").style.display="none";
       document.getElementById("post-view").style.display="flex";
-
     },
   },
 };
@@ -130,12 +128,10 @@ export default {
   display: table;
   transition: opacity 1s;
 }
-
 .modal-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
-
 .modal-container {
   width: 70vw;
   height: 70vh;
@@ -148,40 +144,32 @@ export default {
   display: flex;
   justify-content: space-around;
 }
-
 .modal-header h3 {
   margin-top: 0;
   color: #3E4352;
   font-size: 2em;
   font-weight: 800;
 }
-
 .modal-body {
   margin: 20px 0;
   padding-bottom: 10px;
   border-bottom: 1px solid black;
 }
-
 .modal-body h5{
   font-weight:600;
 }
-
 .modal-footer {
   margin: 20px 0;
 }
-
 .modal-default-button {
   float: right;
 }
-
 .modal-enter {
   opacity: 0;
 }
-
 .modal-leave-active {
   opacity: 0;
 }
-
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.3);

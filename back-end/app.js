@@ -53,15 +53,15 @@ app.post("/posts", async (req,res, next) =>{
 }
 }); 
 
-//delete one image
-app.delete("/posts/:id", async (request, response) => {
+/// delete post
+app.delete("/posts/:postId", async (req, res, next) => {
   try {
-    const post = await Posts.findByIdAndDelete(request.params.id);
-
-    if (!post) response.status(404).send("No item found");
-    response.status(200).send();
+    const deletedPost = await Post.findByIdAndRemove(
+      req.params.postId
+    ); // use the model to find and delete the matching document
+    res.json(deletedPost); // send the response from the db to the client
   } catch (error) {
-    response.status(500).send(error);
+    next(error);
   }
 });
 
