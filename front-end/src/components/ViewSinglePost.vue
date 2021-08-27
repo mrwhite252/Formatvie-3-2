@@ -4,22 +4,6 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-<<<<<<< HEAD
-            <BackButton/>
-            <img :src="post.imageUrl" alt="" />
-            <div class="modal-text">
-          <span id="post-view">
-              <div class="modal-header">
-                  {{post.title}}
-              </div>
-              <div class="modal-body">
-                  <p>{{post.author}}</p>
-                  <p>{{post.description}}</p>
-              </div>
-                <button @click="editPost">
-                <i class="fas fa-pencil-alt"></i>
-                Edit Post
-=======
           <div class="modal-header">
             <slot name="header">
               default header
@@ -38,7 +22,6 @@
               default footer
               <button class="model-default-button" @click="$emit('close')">
                 ok
->>>>>>> 4260043565c63d58a84ccd401cc55edd3320beea
               </button>
           </span>
 
